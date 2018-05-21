@@ -1,4 +1,5 @@
 import React from 'react';
+// Importing firebase
 import firebase from 'firebase';
 
 export default class NoteCard extends React.Component {
@@ -7,6 +8,7 @@ export default class NoteCard extends React.Component {
         this.state = {
             editing: false,
             note: {}
+
         }
         this.save = this.save.bind(this);
     }

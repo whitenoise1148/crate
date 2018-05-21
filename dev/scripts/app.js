@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NoteCard from './noteCard';
+// Importing firebase
 import firebase from 'firebase';
 
 // Initialize Firebase
