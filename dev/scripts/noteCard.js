@@ -7,15 +7,14 @@ export default class NoteCard extends React.Component {
         super();
         this.state = {
             editing: false,
-            note: {}
-
+            note: {},
+            isExpanded: false
         }
         this.save = this.save.bind(this);
     }
 
     save(e) {
         e.preventDefault();
-        console.log(this);
         const dbRef = firebase.database().ref(this.props.note.key);
 
         dbRef.update({
@@ -27,6 +26,14 @@ export default class NoteCard extends React.Component {
             editing: false
         });
     }
+
+    handleToggle(e) {
+        e.preventDefault();
+        this.setState({
+            isExpanded: !this.state.isExpanded
+        })
+    }
+
     render() {
         let editingTemp = (
             <span>
@@ -47,8 +54,11 @@ export default class NoteCard extends React.Component {
                 </form>
             )
         }
-        return (
-            <div className="noteCard">
+        
+        const {isExpanded} = this.state;
+
+        return (      
+            <div className={`noteCard + ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
                 <i className="fas fa-edit" onClick={() => this.setState({editing: true})}></i>
                 <i className="fas fa-times" onClick={() => this.props.removeNote(this.props.note.key)}></i>
                 {editingTemp}

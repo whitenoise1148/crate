@@ -68,7 +68,7 @@ class App extends React.Component {
       return (
         <div>
           <header className='mainHeader'>
-            <h1>Noted</h1>
+            <h1>Crate</h1>
             <nav className='headerNav'>
               <a href='' onClick={e => this.showSidebar(e)}>Add New Note</a>
             </nav>
