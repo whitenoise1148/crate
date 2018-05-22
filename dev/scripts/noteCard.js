@@ -12,9 +12,10 @@ export default class NoteCard extends React.Component {
         }
         this.save = this.save.bind(this);
     }
-
+// ===Allow the user to edit individual notes===
     save(e) {
         e.preventDefault();
+        e.stopPropagation(e);
         const dbRef = firebase.database().ref(this.props.note.key);
 
         dbRef.update({
@@ -27,8 +28,11 @@ export default class NoteCard extends React.Component {
         });
     }
 
+// ===When user clicks a note apply class isExpanded to enlarge that note===
+
     handleToggle(e) {
         e.preventDefault();
+        e.stopPropagation(e);
         this.setState({
             isExpanded: !this.state.isExpanded
         })
@@ -50,7 +54,7 @@ export default class NoteCard extends React.Component {
                     <div>
                         <input type="text" defaultValue={this.props.note.text} name='text' ref={ref => this.noteText = ref}/>
                     </div>
-                    <input type="submit" value='Done editing!' />
+                    <input type="submit" value='Edit Complete' />
                 </form>
             )
         }

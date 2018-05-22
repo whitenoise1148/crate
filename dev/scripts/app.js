@@ -38,6 +38,7 @@ class App extends React.Component {
       })
     });
   }
+  
   showSidebar(e) {
     e.preventDefault();
     this.sidebar.classList.toggle('show');

@@ -12,9 +12,9 @@ body {
 	height: 100vh;
 }
 
-/*
-	Main Header
-*/
+
+// ===Main Header===
+
 
 .mainHeader {
 	width: 100%;
@@ -49,9 +49,9 @@ body {
 	border: 2px solid #ffa775;
 }
 
-/*
-	Sidebar
-*/
+
+// ===Sidebar===
+
 
 .sidebar {
 	width: 250px;
@@ -87,12 +87,10 @@ body {
 
 .sidebar input[type=submit], .sidebar label {
 	font-family: 'Roboto', sans-serif;
-	// color: #FFA775;
 	color: orange;
 	font-size: 1.2rem; 
 	font-weight: bold;
 }
-
 
 .sidebar input[type=submit] {
 	border: 2px solid #517288;
@@ -107,9 +105,7 @@ body {
 	right: 5px;
 }
 
-/*
-	Notes container
-*/
+// ===Notes container===
 
 .notes {
 	padding: 0 50px;
@@ -202,8 +198,7 @@ body {
 			padding: 8px;
 			position: relative;
 			bottom: -8px;
-		}
-	
+		}	
 	}
 	
 	.notes {
@@ -218,7 +213,6 @@ body {
 	color: #f7f7f7;
 	background-color: rgba(0,0,0,0.9);
 	transform: translateY(0px);
-
 }
 
 	.sidebar {
@@ -237,7 +231,6 @@ body {
 			
 		}
 	}
-
 }
 
 
