@@ -28,6 +28,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "draft-js-editor": "^1.12.3",
     "firebase": "^5.0.3",
     "node-sass": "^4.7.1"
   }
