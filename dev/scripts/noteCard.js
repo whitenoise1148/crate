@@ -10,12 +10,12 @@ export default class NoteCard extends React.Component {
             note: {},
             isExpanded: false
         }
+        this.handleToggle = this.handleToggle.bind(this);
         this.save = this.save.bind(this);
     }
 // ===Allow the user to edit individual notes===
     save(e) {
         e.preventDefault();
-        e.stopPropagation(e);
         const dbRef = firebase.database().ref(this.props.note.key);
 
         dbRef.update({
@@ -32,19 +32,22 @@ export default class NoteCard extends React.Component {
 
     handleToggle(e) {
         e.preventDefault();
-        e.stopPropagation(e);
         this.setState({
             isExpanded: !this.state.isExpanded
         })
     }
 
     render() {
+        const { isExpanded } = this.state;
         let editingTemp = (
             <span>
                 <h4>{this.props.note.title}</h4>
                 <p>{this.props.note.text}</p>
             </span>
         )
+
+        const closeButton = isExpanded ? (<input type="button" value='Close' onClick={this.handleToggle} />) : null;
+
         if(this.state.editing) {
             editingTemp = (
                 <form onSubmit={this.save}>
@@ -59,13 +62,15 @@ export default class NoteCard extends React.Component {
             )
         }
         
-        const {isExpanded} = this.state;
+        
 
         return (      
-            <div className={`noteCard + ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
+            <div className={`noteCard + ${isExpanded ? 'is-expanded' : ''}`} 
+            onClick={isExpanded ? null : this.handleToggle}>
                 <i className="fas fa-edit" onClick={() => this.setState({editing: true})}></i>
                 <i className="fas fa-times" onClick={() => this.props.removeNote(this.props.note.key)}></i>
                 {editingTemp}
+                {closeButton}
             </div>
         )
     }
